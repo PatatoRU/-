@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Deliverybot_pro — админ-панель</title>
+    <link rel="stylesheet" href="admin.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="container header-inner">
+        <div class="logo-block">
+          <span class="logo">Deliverybot_pro</span>
+          <span class="badge">Админ-панель</span>
+        </div>
+        <nav class="app-nav">
+          <button class="tab-button active" data-tab="clients">Клиенты</button>
+          <button class="tab-button" data-tab="billing">Биллинг</button>
+          <button class="tab-button" data-tab="content">Контент</button>
+          <button class="tab-button" data-tab="platform">Платформа</button>
+          <button class="tab-button" data-tab="analytics">Аналитика</button>
+        </nav>
+        <div class="user-info">
+          <span>Admin</span>
+          <button class="ghost-button">Выйти</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="panel active" id="clients">
+        <div class="panel-header">
+          <h1>Управление клиентами</h1>
+          <p>Фильтрация по статусам, быстрый доступ к истории платежей и модулям.</p>
+        </div>
+        <div class="card">
+          <div class="filters">
+            <input type="text" placeholder="Поиск по заведению" />
+            <select>
+              <option>Все статусы</option>
+              <option>Триал</option>
+              <option>Активен</option>
+              <option>Приостановлен</option>
+            </select>
+            <button class="primary-button">Применить</button>
+          </div>
+          <div class="table">
+            <div class="row header">
+              <span>Клиент</span>
+              <span>Тариф</span>
+              <span>Статус</span>
+              <span>MRR</span>
+            </div>
+            <div class="row">
+              <span>Demo Cafe</span>
+              <span>Professional</span>
+              <span class="status active">Активен</span>
+              <span>19 900 ₽</span>
+            </div>
+            <div class="row">
+              <span>Pizza Nova</span>
+              <span>Business</span>
+              <span class="status trial">Триал</span>
+              <span>49 900 ₽</span>
+            </div>
+            <div class="row">
+              <span>Street Food</span>
+              <span>Basic</span>
+              <span class="status paused">Приостановлен</span>
+              <span>0 ₽</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="billing">
+        <div class="panel-header">
+          <h1>Биллинг и оплата</h1>
+          <p>Управляйте тарифами, автосписанием и платежными провайдерами.</p>
+        </div>
+        <div class="grid">
+          <div class="card">
+            <h2>Провайдеры</h2>
+            <div class="pill-group">
+              <span class="pill">ЮKassa</span>
+              <span class="pill">CloudPayments</span>
+              <span class="pill">Stripe</span>
+            </div>
+            <button class="primary-button">Подключить нового провайдера</button>
+          </div>
+          <div class="card">
+            <h2>Триалы и автосписание</h2>
+            <form class="stack">
+              <input type="text" placeholder="Длительность триала (дней)" value="30" />
+              <input type="text" placeholder="Период списания" value="Ежемесячно" />
+              <button class="primary-button" type="button">Сохранить настройки</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="content">
+        <div class="panel-header">
+          <h1>Контент лендинга</h1>
+          <p>Редактируйте страницы, блог и SEO-метаданные.</p>
+        </div>
+        <div class="grid">
+          <div class="card">
+            <h2>Страницы</h2>
+            <ul class="list">
+              <li>Главная</li>
+              <li>Возможности</li>
+              <li>Тарифы</li>
+              <li>Кейсы</li>
+            </ul>
+            <button class="primary-button">Открыть редактор</button>
+          </div>
+          <div class="card">
+            <h2>SEO и языки</h2>
+            <form class="stack">
+              <input type="text" placeholder="Основной язык" value="Русский" />
+              <input type="text" placeholder="Дополнительные языки" value="English" />
+              <button class="primary-button" type="button">Сохранить</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="platform">
+        <div class="panel-header">
+          <h1>Функционал платформы</h1>
+          <p>Включайте модули и следите за состоянием инфраструктуры.</p>
+        </div>
+        <div class="grid">
+          <div class="card">
+            <h2>Модули</h2>
+            <div class="toggle-list">
+              <label class="toggle"><input type="checkbox" checked />Telegram-магазин</label>
+              <label class="toggle"><input type="checkbox" checked />Личный кабинет</label>
+              <label class="toggle"><input type="checkbox" />White-label</label>
+            </div>
+          </div>
+          <div class="card">
+            <h2>Мониторинг</h2>
+            <p class="hint">Последняя проверка: 2 минуты назад</p>
+            <button class="primary-button">Открыть мониторинг</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="analytics">
+        <div class="panel-header">
+          <h1>Аналитика</h1>
+          <p>Сводная статистика, конверсия триалов и динамика доходов.</p>
+        </div>
+        <div class="grid metrics">
+          <div class="metric">
+            <h3>MRR</h3>
+            <p class="value">1,24 млн ₽</p>
+            <span class="hint">+12% за месяц</span>
+          </div>
+          <div class="metric">
+            <h3>Активные клиенты</h3>
+            <p class="value">86</p>
+            <span class="hint">+4 новых</span>
+          </div>
+          <div class="metric">
+            <h3>Конверсия триал → оплата</h3>
+            <p class="value">41%</p>
+            <span class="hint">Цель: 40%</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="admin.js"></script>
+  </body>
+</html>

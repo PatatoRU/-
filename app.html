@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Deliverybot_pro — личный кабинет</title>
+    <link rel="stylesheet" href="app.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="container header-inner">
+        <div class="logo-block">
+          <span class="logo">Deliverybot_pro</span>
+          <span class="badge">Личный кабинет</span>
+        </div>
+        <nav class="app-nav">
+          <button class="tab-button active" data-tab="dashboard">Дашборд</button>
+          <button class="tab-button" data-tab="menu">Меню</button>
+          <button class="tab-button" data-tab="delivery">Доставка и зал</button>
+          <button class="tab-button" data-tab="marketing">Маркетинг</button>
+          <button class="tab-button" data-tab="settings">Интеграции</button>
+        </nav>
+        <div class="user-info">
+          <span>Demo Cafe</span>
+          <button class="ghost-button">Выход</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="panel active" id="dashboard">
+        <div class="panel-header">
+          <h1>Быстрый старт</h1>
+          <p>Настройте магазин за 30 минут: добавьте меню, задайте зоны доставки и подключите оплату.</p>
+        </div>
+        <div class="card onboarding">
+          <h2>Чек-лист запуска</h2>
+          <ul class="list">
+            <li>
+              <strong>Добавьте категории и блюда</strong>
+              <span class="hint">Пицца, роллы, закуски и напитки.</span>
+            </li>
+            <li>
+              <strong>Настройте модификаторы</strong>
+              <span class="hint">Размеры, количество, добавки.</span>
+            </li>
+            <li>
+              <strong>Задайте зоны доставки</strong>
+              <span class="hint">Минимальный чек и стоимость.</span>
+            </li>
+            <li>
+              <strong>Подключите кассу и оплату</strong>
+              <span class="hint">iiko, r-keeper, ЮKassa.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="grid metrics">
+          <div class="metric">
+            <h3>Заказы сегодня</h3>
+            <p class="value">12</p>
+            <span class="hint">+20% к прошлой неделе</span>
+          </div>
+          <div class="metric">
+            <h3>Средний чек</h3>
+            <p class="value">1 350 ₽</p>
+            <span class="hint">С учётом доставки</span>
+          </div>
+          <div class="metric">
+            <h3>Конверсия в оплату</h3>
+            <p class="value">42%</p>
+            <span class="hint">Цель: 40%</span>
+          </div>
+          <div class="metric">
+            <h3>Готовность к запуску</h3>
+            <p class="value">80%</p>
+            <span class="hint">Осталось 2 шага</span>
+          </div>
+        </div>
+        <div class="grid quick-actions">
+          <button class="primary-button">Добавить блюдо</button>
+          <button class="ghost-button">Создать акцию</button>
+          <button class="ghost-button">Настроить Telegram-бота</button>
+          <button class="ghost-button">Подключить оплату</button>
+        </div>
+      </section>
+
+      <section class="panel" id="menu">
+        <div class="panel-header">
+          <h1>Меню</h1>
+          <p>Создавайте категории, блюда и модификаторы (размеры, наборы, добавки) — всё для общепита.</p>
+        </div>
+
+        <div class="grid">
+          <div class="card">
+            <h2>Категории</h2>
+            <form id="category-form" class="stack">
+              <input type="text" name="category" placeholder="Например: Пицца" required />
+              <button class="primary-button" type="submit">Добавить категорию</button>
+            </form>
+            <ul id="category-list" class="list"></ul>
+          </div>
+
+          <div class="card">
+            <h2>Блюда</h2>
+            <form id="menu-form" class="stack">
+              <input type="text" name="name" placeholder="Название блюда" required />
+              <select name="category" required></select>
+              <input type="number" name="price" placeholder="Цена, ₽" min="0" required />
+              <div class="modifier-select">
+                <p class="hint">Добавьте модификаторы к блюду:</p>
+                <div id="modifier-select-list" class="pill-group"></div>
+              </div>
+              <textarea name="description" rows="3" placeholder="Краткое описание"></textarea>
+              <button class="primary-button" type="submit">Добавить блюдо</button>
+            </form>
+            <ul id="menu-list" class="list"></ul>
+          </div>
+        </div>
+
+        <div class="card modifiers">
+          <div>
+            <h2>Модификаторы и размеры</h2>
+            <p class="hint">Создайте варианты: размер пиццы 25/30/35 см, роллы 6/8/12 шт, закуски 3/6/9/12 шт.</p>
+          </div>
+          <form id="modifier-form" class="stack">
+            <input type="text" name="title" placeholder="Название модификатора" required />
+            <input type="text" name="options" placeholder="Варианты через запятую" required />
+            <input type="text" name="priceDelta" placeholder="Доплата через запятую (опционально)" />
+            <button class="primary-button" type="submit">Добавить модификатор</button>
+          </form>
+          <ul id="modifier-list" class="list"></ul>
+        </div>
+      </section>
+
+      <section class="panel" id="delivery">
+        <div class="panel-header">
+          <h1>Доставка и зал</h1>
+          <p>Определите зоны, стоимость доставки и схему столов для зала.</p>
+        </div>
+        <div class="grid">
+          <div class="card">
+            <h2>Зоны доставки</h2>
+            <form class="stack">
+              <input type="text" placeholder="Название зоны" />
+              <input type="text" placeholder="Минимальный чек" />
+              <input type="text" placeholder="Стоимость доставки" />
+              <button class="primary-button" type="button">Добавить зону</button>
+            </form>
+          </div>
+          <div class="card">
+            <h2>Самовывоз и зал</h2>
+            <form class="stack">
+              <input type="text" placeholder="График работы" />
+              <input type="text" placeholder="Количество столов" />
+              <button class="primary-button" type="button">Сохранить настройки</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="marketing">
+        <div class="panel-header">
+          <h1>Маркетинг</h1>
+          <p>Настройте лояльность, акции и Telegram-рассылки.</p>
+        </div>
+        <div class="grid">
+          <div class="card">
+            <h2>Лояльность</h2>
+            <form class="stack">
+              <input type="text" placeholder="Бонусы за заказ" />
+              <input type="text" placeholder="Срок действия бонусов" />
+              <button class="primary-button" type="button">Сохранить</button>
+            </form>
+          </div>
+          <div class="card">
+            <h2>Акции</h2>
+            <form class="stack">
+              <input type="text" placeholder="Название акции" />
+              <input type="text" placeholder="Условие" />
+              <button class="primary-button" type="button">Создать акцию</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="settings">
+        <div class="panel-header">
+          <h1>Интеграции</h1>
+          <p>Подключите кассы, онлайн-оплату и сервисы доставки в пару кликов.</p>
+        </div>
+        <div class="grid">
+          <div class="card">
+            <h2>Кассовые системы</h2>
+            <div class="pill-group">
+              <span class="pill">iiko</span>
+              <span class="pill">r-keeper</span>
+              <span class="pill">Frontpad</span>
+              <span class="pill">СБИС ПРЕСТО</span>
+            </div>
+            <button class="primary-button">Подключить кассу</button>
+          </div>
+          <div class="card">
+            <h2>Онлайн-оплата</h2>
+            <div class="pill-group">
+              <span class="pill">ЮKassa</span>
+              <span class="pill">CloudPayments</span>
+              <span class="pill">Stripe</span>
+            </div>
+            <button class="primary-button">Подключить оплату</button>
+          </div>
+          <div class="card">
+            <h2>Telegram-бот</h2>
+            <p class="hint">Вставьте токен бота от BotFather, чтобы подключить магазин.</p>
+            <form id="bot-form" class="stack">
+              <input type="text" name="botToken" placeholder="123456:ABC-DEF1234ghIkl..." required />
+              <button class="primary-button" type="submit">Подключить бота</button>
+              <p id="bot-status" class="hint"></p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
