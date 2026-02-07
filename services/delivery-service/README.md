@@ -1,3 +1,6 @@
-# Service Placeholder
+# delivery-service
 
-TODO: Implement NestJS service structure, domain modules and OpenAPI spec.
+Геозоны доставки, расчет стоимости и времени.
+
+- Контракты: OpenAPI (REST)
+- События: DeliveryZoneUpdated
