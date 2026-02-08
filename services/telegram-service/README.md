@@ -1,3 +1,6 @@
-# Service Placeholder
+# telegram-service
 
-TODO: Implement NestJS service structure, domain modules and OpenAPI spec.
+Webhook обработка и сообщения для магазин-бота и админ-бота.
+
+- Контракты: OpenAPI (REST)
+- События: BotMessageSent, BotSessionUpdated
