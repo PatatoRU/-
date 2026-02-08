@@ -1,0 +1,44 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: deliverybot
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: secret
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - '6379:6379'
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+
+  auth-service:
+    build: ./services/auth-service
+    environment:
+      NODE_ENV: development
+      DATABASE_URL: postgresql://admin:secret@postgres:5432/auth_db
+    depends_on:
+      - postgres
+      - redis
+
+  menu-service:
+    build: ./services/menu-service
+    environment:
+      NODE_ENV: development
+      DATABASE_URL: postgresql://admin:secret@postgres:5432/menu_db
+    depends_on:
+      - postgres
+      - redis
+
+volumes:
+  postgres_data:

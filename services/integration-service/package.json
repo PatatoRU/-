@@ -1,0 +1,9 @@
+{
+  "name": "service-placeholder",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "node dist/main.js",
+    "dev": "node src/main.ts"
+  }
+}

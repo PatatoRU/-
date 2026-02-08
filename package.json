@@ -1,0 +1,15 @@
+{
+  "name": "deliverybot-pro",
+  "private": true,
+  "packageManager": "pnpm@9.0.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "services/*",
+    "telegram-bot"
+  ],
+  "scripts": {
+    "lint": "echo 'add lint scripts'",
+    "test": "echo 'add test scripts'"
+  }
+}
