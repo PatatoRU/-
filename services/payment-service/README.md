@@ -1,3 +1,6 @@
-# Service Placeholder
+# payment-service
 
-TODO: Implement NestJS service structure, domain modules and OpenAPI spec.
+Подписки, тарифы, платежные провайдеры.
+
+- Контракты: OpenAPI (REST)
+- События: PaymentCreated, PaymentSucceeded
