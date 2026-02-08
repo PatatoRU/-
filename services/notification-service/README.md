@@ -1,3 +1,6 @@
-# Service Placeholder
+# notification-service
 
-TODO: Implement NestJS service structure, domain modules and OpenAPI spec.
+Email, SMS и Telegram-уведомления.
+
+- Контракты: OpenAPI (REST)
+- События: NotificationQueued, NotificationSent
