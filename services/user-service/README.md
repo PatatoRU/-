@@ -1,3 +1,6 @@
-# Service Placeholder
+# user-service
 
-TODO: Implement NestJS service structure, domain modules and OpenAPI spec.
+Организации, профили пользователей и сотрудники.
+
+- Контракты: OpenAPI (REST)
+- События: OrganizationCreated, StaffAssigned
